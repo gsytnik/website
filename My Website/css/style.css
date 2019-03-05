@@ -1,0 +1,314 @@
+body{
+	font:15px/1.5 Arial, Helvetica, sans-serif;
+	padding:0;
+	margin:0;
+	background-color: #f4f4f4;
+
+}
+
+/*Global*/
+
+.container{
+	width:80%;
+	overflow: hidden;
+	margin: auto;
+
+}
+
+.button-link{
+	background-color: #333;
+	color:#fff;
+	padding:10px 20px;
+	font-size: 16px;
+}
+
+.nav-container{
+	width:100%;
+	overflow: hidden;
+	margin:auto;
+	background-color: #333;
+}
+
+ul{
+	padding:0;
+	margin:0;
+}
+
+a{
+	text-decoration: none;
+
+}
+
+.block{
+	padding:20px 20px;
+	border:#ccc solid 1px;
+	margin-bottom: 20px;
+	background:#e6e6e6;
+}
+
+/*Header*/
+
+header{
+	background: #0052cc;
+	min-height: 30px;
+	border: 7px solid darkkhaki;
+	
+}
+
+#pagehead{
+	color:#fff;
+	text-align: center;
+}
+
+header nav{
+	width:100%;
+	padding:0;
+	margin:0;
+	
+
+}
+
+header li{
+	background-color: #333;
+	color:#fff;
+	padding:20px 0px;
+	font-size: 16px;
+	float:left;
+	display: inline;
+
+}
+
+header a{
+	color:#fff;
+	padding:20px 20px;
+	font-size: 16px;
+}
+
+header .current a{
+	color:#e8491d;
+	font-weight: bold;
+}
+
+header a:hover{
+	background-color:#444;
+}
+
+/*Section*/
+section.main-sec{
+	margin-top:20px;
+	padding:20px;
+	background-color: #35424a;
+	
+}
+
+
+/*Article*/
+
+
+article.main-col-floated{
+	box-sizing: border-box;
+	margin:20px;
+	float:left;
+	width:65%;
+}
+
+
+
+article.main-col{
+	margin-top: 40px;
+
+}
+
+article.main-col h2, article.main-col-floated h2{
+	color:#fff;
+}
+
+article.main-col ul, article.main-col li{
+	padding-left: 20px;
+}
+
+
+
+/*Aside*/
+aside#sidebar{
+	box-sizing: border-box;
+	float:right;
+	width:30%;
+	margin-top: 20px;
+}
+
+aside#sidebar div.block{
+	text-align: center;
+}
+
+aside#sidebar h2{
+	color:#fff;
+}
+
+
+frame{
+
+	position:relative;
+	background:#333;
+
+	height: 200px;
+	border:5px solid darkkhaki;
+	padding:20px;
+	overflow:hidden;
+}
+
+/*Game Section*/
+.game-section{
+	margin-top: 40px;
+
+}
+
+.game-block-left{
+	box-sizing: border-box;
+	padding:10px;
+	border:#ccc solid 1px;
+	margin: 20px;
+	background:#e6e6e6;
+
+	float:left;
+	width:45%;
+	min-height: 200px;
+	min-width: 350px;
+
+	overflow: hidden;
+	text-align: center;
+
+}
+
+.game-block-right{
+	box-sizing: border-box;
+	padding:10px;
+	border:#ccc solid 1px;
+	margin: 20px;
+	background:#e6e6e6;
+
+	float:right;
+	width:45%;
+	min-height: 200px;
+	min-width: 350px;
+
+	overflow: hidden;
+	text-align: center;
+
+}
+
+.game-link{
+	text-align: center;
+
+	display:inline-block;
+	width:100px;
+	
+	color:#fff;
+	background-color: #0052cc;
+	padding:20px 20px;
+	font-size: 16px;
+}
+
+.game-link:hover{
+	background-color:#1a75ff;
+}
+
+/*Swimming Links and Images*/
+.bordered-image{
+	border:5px solid darkkhaki;
+}
+
+.swim-link{
+	text-align: center;
+
+	display:block;
+	width:100px;
+	
+	color:#fff;
+	background-color: #006600;
+	padding:20px 20px;
+	font-size: 16px;
+}
+
+.swim-link:hover{
+	background-color:#007700;
+}
+
+#tera-link{
+	text-align: center;
+
+	display:block;
+	width:100px;
+
+	color:#fff;
+	background-color: #0052cc;
+	padding:20px 20px;
+	font-size: 16px;	
+}
+
+#tera-link:hover{
+	background-color: #1a75ff;
+}
+
+.las-lomas-hs{
+	text-align: center;
+
+	display: inline-block;
+	width:100px;
+
+	color:gold;
+	background-color: maroon;
+
+	padding:20px 20px;
+	font-size: 16px;
+	margin-bottom:10px;	
+
+
+}
+
+.las-lomas-hs:hover{
+	background-color: #990000;
+}
+
+
+
+
+
+
+
+
+
+footer{
+	padding:10px;
+	margin-top: 20px;
+	margin-bottom:20px;
+	color:#fff;
+	background-color:#333;
+	text-align: center;
+}
+
+@media(max-width: 1100px){
+
+	.game-block-left,
+	.game-block-right{
+		float:none;
+		text-align: center;
+		width: 100%;
+	}
+
+
+}
+
+
+/* Media Queries*/
+@media(max-width: 768px){
+	
+	article.main-col-floated,
+	aside#sidebar{
+		float:none;
+		text-align: center;
+		width: 100%;
+	}
+
+
+}
