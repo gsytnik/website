@@ -1,3 +1,6 @@
+/*
+player is in the shape of a frog.
+*/
 class Player {
 
 	constructor(x,y) {
@@ -14,7 +17,7 @@ class Player {
 		this.dy = 0;
 
 		this.ax;
-		this.ay = .5;
+		this.ay = .5; // "gravity" appropriate for game
 		this.movement = true;
 
 	}
@@ -48,160 +51,160 @@ class Player {
 
 	stroke(0);
 
-    push();
-   	 //ENTIRE FROG
-   	 translate(this.x, this.y);
-   	 scale(this.scale);
+	    push();
+		 //ENTIRE FROG
+		 translate(this.x, this.y);
+		 scale(this.scale);
 
-   	 //left arm
-   	 fill(70, 200, 70);
-   	 push();
-   		 translate(-20, 5);
-   		 quad(0, 0, 0, -10, -15, -23, -18, -20);
-   		 push();
-   			 translate(-16, -21);
-   			 push();
-   				 translate(20, -22);
-   				 rotate(PI/2);
-   				 rect(9, 17, 15, 2);
-   				 ellipse(9, 18.5, 5);
-   				 push();
-   					 rotate(-PI/9);
-   					 rect(1, 25, 15, 2);
-   					 ellipse(1, 26, 5);
-   					 rotate(-PI/9);
-   					 rect(-8, 30, 15, 2);
-   					 ellipse(-8, 31, 5);
-   				 pop();
-   				 ellipse(22, 19.5, 10);
-   			 pop();
-   			 ellipse(0, 0, 10);
-   		 pop();
-   	 pop();
+		 //left arm
+		 fill(70, 200, 70);
+		 push();
+			 translate(-20, 5);
+			 quad(0, 0, 0, -10, -15, -23, -18, -20);
+			 push();
+				 translate(-16, -21);
+				 push();
+					 translate(20, -22);
+					 rotate(PI/2);
+					 rect(9, 17, 15, 2);
+					 ellipse(9, 18.5, 5);
+					 push();
+						 rotate(-PI/9);
+						 rect(1, 25, 15, 2);
+						 ellipse(1, 26, 5);
+						 rotate(-PI/9);
+						 rect(-8, 30, 15, 2);
+						 ellipse(-8, 31, 5);
+					 pop();
+					 ellipse(22, 19.5, 10);
+				 pop();
+				 ellipse(0, 0, 10);
+			 pop();
+		 pop();
 
-   	 //right arm
-   	 push();
-   		 translate(20, 5);
-   		 quad(0, 0, 0, -10, 15, -23, 18, -20);
-   		 push();
-   			 translate(16, -21);
-   			 push();
-   				 translate(-20, -22);
-   				 rotate(-PI/2);
-   				 rect(-23, 17, 15, 2);
-   				 ellipse(-8, 18.5, 5);
-   				 push();
-   					 rotate(PI/9);
-   					 rect(-14, 25, 15, 2);
-   					 ellipse(0, 26, 5);
-   					 rotate(PI/9);
-   					 rect(-5, 30, 15, 2);
-   					 ellipse(10, 31, 5);
-   				 pop();
-   			 pop();
-   			 ellipse(0, 0, 10);
-   		 pop();
-   	 pop();
-   	 
-   	 
+		 //right arm
+		 push();
+			 translate(20, 5);
+			 quad(0, 0, 0, -10, 15, -23, 18, -20);
+			 push();
+				 translate(16, -21);
+				 push();
+					 translate(-20, -22);
+					 rotate(-PI/2);
+					 rect(-23, 17, 15, 2);
+					 ellipse(-8, 18.5, 5);
+					 push();
+						 rotate(PI/9);
+						 rect(-14, 25, 15, 2);
+						 ellipse(0, 26, 5);
+						 rotate(PI/9);
+						 rect(-5, 30, 15, 2);
+						 ellipse(10, 31, 5);
+					 pop();
+				 pop();
+				 ellipse(0, 0, 10);
+			 pop();
+		 pop();
 
-   	 //left leg
-   	 push();
-   		 translate(-4, 25);
-   		 quad(0, 0, -12, -7, -25, 7, -15, 15);
-   		 push();
-   			 translate(-25, 7);
-   			 rotate(PI/6 + PI/6*this.direction);
-   			 quad(0, 0, 20, 20, 24, 15, 14, -3);
-   			 
-   			 rect(9, 17, 15, 2);
-   			 ellipse(9, 18.5, 5);
-   			 push();
-   				 rotate(-PI/9);
-   				 rect(1, 25, 15, 2);
-   				 ellipse(1, 26, 5);
-   				 rotate(-PI/9);
-   				 rect(-8, 30, 15, 2);
-   				 ellipse(-8, 31, 5);
-   			 pop();
-   			 ellipse(22, 19.5, 10);
-   		 pop();
-   	 pop();
 
-   	 //right leg
-   	 push();
-   		 translate(4, 25);
-   		 quad(0, 0, 12, -7, 25, 7, 15, 15);
-   		 push();
-   			 translate(25, 7);
-   			 rotate(-PI/6 + PI/6*this.direction);
-   			 quad(0, 0, -20, 20, -24, 15, -14, -3);
-   			 rect(-23, 17, 15, 2);
-   			 ellipse(-8, 18.5, 5);
-   			 push();
-   				 rotate(PI/9);
-   				 rect(-14, 25, 15, 2);
-   				 ellipse(0, 26, 5);
-   				 rotate(PI/9);
-   				 rect(-5, 30, 15, 2);
-   				 ellipse(10, 31, 5);
-   			 pop();
-   			 ellipse(-22, 19.5, 10);
-   		 pop();
-   	 pop();
 
-   	 //body
-   	 ellipse(0, 0, 50, 55);
-   	 fill(190, 254, 113);
-   	 ellipse(0, 0, 30, 35);
-   	 fill(70, 200, 70);
+		 //left leg
+		 push();
+			 translate(-4, 25);
+			 quad(0, 0, -12, -7, -25, 7, -15, 15);
+			 push();
+				 translate(-25, 7);
+				 rotate(PI/6 + PI/6*this.direction);
+				 quad(0, 0, 20, 20, 24, 15, 14, -3);
 
-   	 //head
-   	 push();
-   		 translate(0, -20);
+				 rect(9, 17, 15, 2);
+				 ellipse(9, 18.5, 5);
+				 push();
+					 rotate(-PI/9);
+					 rect(1, 25, 15, 2);
+					 ellipse(1, 26, 5);
+					 rotate(-PI/9);
+					 rect(-8, 30, 15, 2);
+					 ellipse(-8, 31, 5);
+				 pop();
+				 ellipse(22, 19.5, 10);
+			 pop();
+		 pop();
 
-   		 ellipse(0, 0, 55, 35);
-   	 pop();    
+		 //right leg
+		 push();
+			 translate(4, 25);
+			 quad(0, 0, 12, -7, 25, 7, 15, 15);
+			 push();
+				 translate(25, 7);
+				 rotate(-PI/6 + PI/6*this.direction);
+				 quad(0, 0, -20, 20, -24, 15, -14, -3);
+				 rect(-23, 17, 15, 2);
+				 ellipse(-8, 18.5, 5);
+				 push();
+					 rotate(PI/9);
+					 rect(-14, 25, 15, 2);
+					 ellipse(0, 26, 5);
+					 rotate(PI/9);
+					 rect(-5, 30, 15, 2);
+					 ellipse(10, 31, 5);
+				 pop();
+				 ellipse(-22, 19.5, 10);
+			 pop();
+		 pop();
 
-   	 //left eye
-   	 push();
-   		 translate(-18, -35);
-   		 ellipse(0, 0, 20);
-   		 fill(255);
-   		 ellipse(0, 0, 13);
-   		 push();
-   			 translate(1, 2.1);
-   			 fill(0);
-   			 ellipse(0, 0, 6);
-   		 pop();
-   	 pop();
+		 //body
+		 ellipse(0, 0, 50, 55);
+		 fill(190, 254, 113);
+		 ellipse(0, 0, 30, 35);
+		 fill(70, 200, 70);
 
-   	 //right eye
-   	 push();
-   		 translate(18, -35);
-   		 ellipse(0, 0, 20);
-   		 fill(255);
-   		 ellipse(0, 0, 13);
-   		 push();
-   			 translate(-1, 2.1);
-   			 fill(0);
-   			 ellipse(0, 0, 6);
-   		 pop();
-   	 pop();
+		 //head
+		 push();
+			 translate(0, -20);
 
-   	 //smile
-   	 push();
-   		 translate(0, -13);
-   		 beginShape();
-   			 curveVertex(-20, -3);
-   			 curveVertex(-20, -3);
-   			 curveVertex(0, 3);
-   			 curveVertex(20, -3);
-   			 curveVertex(20, -3);
-   		 endShape();
-   	 pop();
-   	 
-    pop();
+			 ellipse(0, 0, 55, 35);
+		 pop();    
+
+		 //left eye
+		 push();
+			 translate(-18, -35);
+			 ellipse(0, 0, 20);
+			 fill(255);
+			 ellipse(0, 0, 13);
+			 push();
+				 translate(1, 2.1);
+				 fill(0);
+				 ellipse(0, 0, 6);
+			 pop();
+		 pop();
+
+		 //right eye
+		 push();
+			 translate(18, -35);
+			 ellipse(0, 0, 20);
+			 fill(255);
+			 ellipse(0, 0, 13);
+			 push();
+				 translate(-1, 2.1);
+				 fill(0);
+				 ellipse(0, 0, 6);
+			 pop();
+		 pop();
+
+		 //smile
+		 push();
+			 translate(0, -13);
+			 beginShape();
+				 curveVertex(-20, -3);
+				 curveVertex(-20, -3);
+				 curveVertex(0, 3);
+				 curveVertex(20, -3);
+				 curveVertex(20, -3);
+			 endShape();
+		 pop();
+
+	    pop();
 
 
 
@@ -267,7 +270,14 @@ class Platform {
 
 		this.pc;
 
+		/*
+		classification is based on color
+		green are regular platforms which you can jump on
+		green will disappear after one hop.
+		yellow are trampolines
+		*/
 		this.classification = classification;
+		
 
 		if(this.classification == 1) {
 			this.pc = color(0,200,0);
@@ -322,6 +332,9 @@ class Platform {
 
 
 //================Particles=============
+/*
+for death animation blood.
+*/
 
 class Particle {
 
