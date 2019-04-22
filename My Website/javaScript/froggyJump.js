@@ -8,8 +8,9 @@ var platforms = [];
 
 var rpd; //platform distance variable
 
+//platform colors (red, yellow, green).
 var g = 1;
-var b = 2;
+var y = 2;
 var r = 3;
 
 var maxHeight;
@@ -451,14 +452,12 @@ function playerMovement() {
     	if(checkCollision(platforms[i].getX(), platforms[i].getY(), platforms[i].w, platforms[i].thickness) && player.isFalling()) {
 
         	if (platforms[i].classification == 1) {
-
-
-            	player.setVelocity(-12);
+            		player.setVelocity(-12);
         	} else if (platforms[i].classification == 2) {
-            	player.setVelocity(-30);
+            		player.setVelocity(-30);
         	} else if (platforms[i].classification == 3) {
-            	player.setVelocity(-12);
-            	platforms.splice(i,1);
+            		player.setVelocity(-12);
+            		platforms.splice(i,1);
         	}
     	}
 
@@ -495,7 +494,7 @@ function checkCollision(objectX,objectY,objectW,objectH) {
 	selects type of platform.
 	green platforms start at 70% spawn rate which decreases to 0 based on score
 	red starts at 10% and increases to 80% spawn rate based on player score
-	blue stays at 10% the entire game
+	yellow stays at 10% the entire game
 */
 function diceRoll() {
 
@@ -510,7 +509,7 @@ function diceRoll() {
 
 	} else if (dice >= 90) {
 
-    	return(b);
+    	return(y);
 	}
 
 
