@@ -6,7 +6,7 @@ var start = true;
 
 var platforms = [];
 
-var rpd;
+var rpd; //platform distance variable
 
 var g = 1;
 var b = 2;
@@ -86,7 +86,7 @@ function setup() {
 	for(var i = 0; i < 12; i++) {
 
     	let pX = random(width-50);
-    	let pY = random(45*i-1,50*i - 1);
+    	let pY = random(45*i-1,50*i-1);
 
     	platforms.push(new Platform(pX,pY,50,diceRoll(),10));
 	}
@@ -96,7 +96,7 @@ function setup() {
 
 	//title frog
 	leftLegR = PI/20;
-    rightLegR = -PI/20;
+    	rightLegR = -PI/20;
 
 	//scene height setup
 	scene1y = 0;
@@ -165,6 +165,8 @@ function draw() {
 
 /*
 death function
+obtains player x to make sure blood is in same location as player fell off the screen
+deathtimer makes sure that the screen switches later on.
 */
 function playerDeath() {
 
@@ -293,6 +295,9 @@ function mouseClicked() {
 
 }
 
+/*
+resets all player variables and scenes 
+*/
 function resetGame() {
 
 	player.transfer(width*2/3,height*4/5);
@@ -300,10 +305,10 @@ function resetGame() {
 
 	score = 0;
   
-  scene1y = 0;
-  scene2y = -height;
-  scene3y = -2*height;
-  scene4y = -3*height;
+  	scene1y = 0;
+	scene2y = -height;
+	scene3y = -2*height;
+	scene4y = -3*height;
 
 	dead = false;
 	deathTimer = 0;
@@ -332,7 +337,8 @@ function resetGame() {
 
 
 /*
-creats a platform if there is no platform nearby every 70 points
+creates a platform if there is no platform nearby 
+based on rpd (random platform distance)
 */
 function makePlatform() {
 	console.log(rpd);
@@ -353,7 +359,7 @@ function makePlatform() {
 }
 
 /*
-	checks to see if a platform is within 70 pixels of the given location
+	checks to see if a platform is within rpd pixels of the given location
 
 */
 function platformNear(y) {
@@ -383,17 +389,10 @@ function showPlatforms() {
 
 	for(var i = platforms.length - 1; i > 0; i--) {
 
-   	 
-   	 
-   	 
-
     	if(scroll()) {
         	platforms[i].addY(-player.getVelocity());
 
     	}
-
-
-
 
     	platforms[i].show();
 
@@ -414,9 +413,7 @@ function showPlatforms() {
 
 
 /*
-	controls all aspects of player movement
-
-
+controls all aspects of player movement
 */
 function playerMovement() {
 
@@ -493,13 +490,12 @@ function checkCollision(objectX,objectY,objectW,objectH) {
 	}
 }
 
-/*
-	draw background scene
-
-*/
 
 /*
-	selects type of platform
+	selects type of platform.
+	green platforms start at 70% spawn rate which decreases to 0 based on score
+	red starts at 10% and increases to 80% spawn rate based on player score
+	blue stays at 10% the entire game
 */
 function diceRoll() {
 
@@ -576,18 +572,22 @@ function playerMaxHeight() {
 function scrollScene() {
 
 	if (scene4y <= 0) {
-    	if(scroll()) {
-            	scene1y -= player.getVelocity()*(.07);
-            	scene2y -= player.getVelocity()*(.07);
-            	scene3y -= player.getVelocity()*(.07);
-            	scene4y -= player.getVelocity()*(.07);
+    		if(scroll()) {
+            		scene1y -= player.getVelocity()*(.07);
+            		scene2y -= player.getVelocity()*(.07);
+            		scene3y -= player.getVelocity()*(.07);
+            		scene4y -= player.getVelocity()*(.07);
 
 
-    	}
+    		}
 	}
 
 }
 
+/*
+optimized performance: if a certain scene is not close enough to the
+actual screen frame, the scene will not be drawn.
+*/
 function drawScene()
 {
 	background(0);
